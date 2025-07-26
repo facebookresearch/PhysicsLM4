@@ -1,0 +1,103 @@
+# python -m lingua.stool script=apps.aunet.train config=apps/aunet/config/2B_1level.yaml nodes=2 account=slurm_account qos=slurm_qos
+# dump_dir: !!!CHANGE_THIS!!!
+name: "2B_1levels"
+steps: 180000
+probe_freq: null
+
+seed: 777
+optim:
+    lr: 1.65e-3
+    warmup: 10000
+    weight_decay: 0.1
+    lr_min_ratio: 0.01
+    clip: 0.2
+
+distributed:
+    fsdp_type: full_shard
+    compile: true
+    model_dtype: bf16
+    matmul_allow_tf32: false
+    selective_activation_checkpointing: false
+    tp_size: 1
+    compile_cache_size_limit: 16
+
+model:
+    dimensions: [512, 2048]
+    layers: [3, 25]
+    head_dims: [64, 128]
+    residuals: [True]
+    sliding_windows: [512, 4096]
+    max_seqlens: [-1, 3200] # 4096
+    block:
+        rope_theta: 500000.0
+        multiple_of: 256
+    lambda_level: 0.0
+    pooling_type: simple_indexed_matmul
+
+data:
+    root_dir: /path/to/data
+    sources:
+      dclm_baseline_1.0: 1.0
+    batch_size: 12
+    prefetch_size: 1024
+    seq_len: 8192
+    n_views: 2
+    load_async: true
+    add_bos: true
+    add_eos: true
+    tokenizer:
+        name: bytes
+    
+    regex:
+        strategy:
+            word1: 1@1
+
+profiling:
+  run: true
+  mem_warmup: 0
+  mem_steps: 4
+  profile_warmup: 100
+  profile_steps: 4
+checkpoint:
+    dump:
+        every: 2000
+        keep: 1
+    eval:
+        every: 50000
+        keep: 1
+
+logging:
+  freq: 1
+
+async_eval_gpus: 8
+eval:
+  harness:
+    tasks:
+      - hellaswag
+      - task: boolq
+        dataset_kwargs:
+          trust_remote_code: true
+      - piqa
+      - task: social_iqa
+        dataset_kwargs:
+          trust_remote_code: true
+      - winogrande
+      - openbookqa
+      - arc_easy
+      - arc_challenge
+      - race
+      - commonsense_qa
+      - copa
+      # - coqa
+      # - task: nq_open
+      #   num_fewshot: 5
+      # - triviaqa
+      # - gsm8k
+      # - bbh
+      # - mmlu
+      # - mmlu_pro
+  validation:
+    max_steps: 1000
+  generator:
+    max_tokens: 16384
+    dtype: bf16

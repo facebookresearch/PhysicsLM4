@@ -1,0 +1,35 @@
+name: "debug_evals"
+# ckpt_dir: !!CHANGETHIS!!
+# dump_dir: !!CHANGETHIS!!
+generator:
+  max_tokens: 8192
+  dtype: bf16
+  temperature: 1.0
+  top_p: 0.95
+harness:
+  tasks:
+    - hellaswag
+    - task: boolq
+      dataset_kwargs:
+        trust_remote_code: true
+    - task: nq_open
+      num_fewshot: 5
+    - piqa
+    - task: social_iqa
+      dataset_kwargs:
+        trust_remote_code: true
+    - triviaqa
+    - winogrande
+    - openbookqa
+    - arc_easy
+    - arc_challenge
+    - race
+    - commonsense_qa
+    # - coqa
+    - copa
+    - gsm8k
+    - bbh
+    - mmlu
+    - mmlu_pro
+validation:
+  max_steps: 1000

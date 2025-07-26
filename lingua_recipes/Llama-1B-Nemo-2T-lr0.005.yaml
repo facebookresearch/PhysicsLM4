@@ -1,0 +1,94 @@
+# Zeyuan note: run with 256 GPUs to replicate our result
+probe_freq: null
+seed: 777
+logging:
+  freq: 10
+  wandb:
+    entity: zeyuanallenzhu
+    project: <zeyuan_placeholder>
+    name: <zeyuan_placeholder>
+optim:
+  lr: 0.005
+  weight_decay: 0.008
+  warmup: 8000
+  lr_min_ratio: 0.01
+  epsilon: 1.0e-08
+  beta1: 0.9
+  beta2: 0.95
+  clip: 1
+  scheduler: cosine
+distributed:
+  fsdp_type: full_shard
+  compile: true
+  model_dtype: bf16
+  matmul_allow_tf32: false
+  selective_activation_checkpointing: false
+  tp_size: 1
+model:
+  dim: 2048
+  n_layers: 24
+  n_heads: 32
+  qk_norm: true
+  z_loss: true
+data:
+  root_dir: /zeyuan_placeholder/data
+  sources:
+    original_shuffled: 1.0
+  batch_size: 8
+  prefetch_size: 1024
+  seq_len: 4096
+  n_views: 2
+  load_async: true
+  add_bos: true
+  add_eos: true
+  tokenizer:
+    name: sp
+    path: /zeyuan_placeholder/llama2/tokenizer.model
+profiling:
+  run: false
+checkpoint:
+  dump:
+    every: 2000
+    keep: 3
+  eval:
+    every: 4000
+    keep: -1
+  read_s3: true
+async_eval_gpus: 8
+eval:
+  harness:
+    tasks:
+    - hellaswag
+    - task: boolq
+      dataset_kwargs:
+        trust_remote_code: true
+    - piqa
+    - task: social_iqa
+      dataset_kwargs:
+        trust_remote_code: true
+    - winogrande
+    - openbookqa
+    - arc_easy
+    - arc_challenge
+    - race
+    - commonsense_qa
+    - copa
+    - task: lambada_openai
+      dataset_kwargs:
+        trust_remote_code: true
+      metric_list:
+      - metric: acc
+        aggregation: mean
+        higher_is_better: true
+    - triviaqa
+    log_samples: false
+  validation: null
+  generator:
+    max_tokens: 8192
+    dtype: bf16
+    show_progress: true
+  save_s3: true
+steps: 240000
+grad_acc_steps: 1
+dump_dir: <zeyuan_placeholder>
+name: <zeyuan_placeholder>
