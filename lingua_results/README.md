@@ -5,7 +5,7 @@ Our released paper, [*Physics of Language Models: Part 4.1, Architecture Design 
 In this release, we provide code and pre-trained models to showcase how these findings extend to real-world pretraining. Specifically, we compare the vanilla *Llama architecture* with our modified *LlamaCanon* variant, both pretrained under the same *controlled settings*.
 
 <div align="center">
-<img src="model-training-time.png" style="object-fit: contain;" />
+<img src="model-training-time.png" style="object-fit: contain; width: 90%; " /><br/>
 <em><b>Figure 1:</b> Quick illustration of performance vs. model size/training time.</em>
 </div>
 
@@ -35,6 +35,8 @@ The table below compares the performance of **LlamaCanon** against both vanilla 
   <em><b>Figure 3:</b> Cross-benchmark performance comparison of the evaluated models.</em>
 </div>
 
+> *Note*: Nvidia's models are not open-sourced so we don't have LMB/BoolQ/Copa accuracies; "average of 10" is over the remaining ones.
+
 
 ### Training Curves
 
@@ -51,7 +53,67 @@ To further showcase the advantage of Canon layers over the entirety of the pretr
 
 ### Link to Model Weights
 
-See [Hugging Face](https://huggingface.co/facebook/PhysicsLM4.2__LlamaCanon-8B-Nemo-1T-lr0.003).
+See [Hugging Face](https://huggingface.co/collections/facebook/physics-of-language-models-part-42-6883fa5e7218a7369f22a806):
+
+<div style="
+  display: inline-block;
+  transform: scale(0.9);
+  transform-origin: top left;
+  width: fit-content;
+  white-space: nowrap;
+">
+<a href="https://huggingface.co/facebook/PhysicsLM4.2__Llama-1B-Nemo-1T-lr0.002">
+  <img src="https://img.shields.io/badge/Llama-1B--Nemo--1T--lr0.002-white">
+</a>
+<a href="https://huggingface.co/facebook/PhysicsLM4.2__LlamaCanon-1B-Nemo-1T-lr0.002">
+  <img src="https://img.shields.io/badge/LlamaCanon-1B--Nemo--1T--lr0.002-white">
+</a>
+<a href="https://huggingface.co/facebook/PhysicsLM4.2__Llama-1B-Nemo-1T-lr0.003">
+  <img src="https://img.shields.io/badge/Llama-1B--Nemo--1T--lr0.003-white">
+</a>
+<a href="https://huggingface.co/facebook/PhysicsLM4.2__LlamaCanon-1B-Nemo-1T-lr0.003">
+  <img src="https://img.shields.io/badge/LlamaCanon-1B--Nemo--1T--lr0.003-white">
+</a>
+<br/>
+<a href="https://huggingface.co/facebook/PhysicsLM4.2__Llama-1B-Nemo-2T-lr0.003">
+  <img src="https://img.shields.io/badge/Llama-1B--Nemo--2T--lr0.003-white">
+</a>
+<a href="https://huggingface.co/facebook/PhysicsLM4.2__LlamaCanon-1B-Nemo-2T-lr0.003">
+  <img src="https://img.shields.io/badge/LlamaCanon-1B--Nemo--2T--lr0.003-white">
+</a>
+<a href="https://huggingface.co/facebook/PhysicsLM4.2__Llama-1B-Nemo-2T-lr0.005">
+  <img src="https://img.shields.io/badge/Llama-1B--Nemo--2T--lr0.005-white">
+</a>
+<a href="https://huggingface.co/facebook/PhysicsLM4.2__LlamaCanon-1B-Nemo-2T-lr0.005">
+  <img src="https://img.shields.io/badge/LlamaCanon-1B--Nemo--2T--lr0.005-white">
+</a>
+<br/>
+<a href="https://huggingface.co/facebook/PhysicsLM4.2__Llama-3B-Nemo-1T-lr0.002">
+  <img src="https://img.shields.io/badge/Llama-3B--Nemo--1T--lr0.002-white">
+</a>
+<a href="https://huggingface.co/facebook/PhysicsLM4.2__LlamaCanon-3B-Nemo-1T-lr0.002">
+  <img src="https://img.shields.io/badge/LlamaCanon-3B--Nemo--1T--lr0.002-white">
+</a>
+<a href="https://huggingface.co/facebook/PhysicsLM4.2__Llama-3B-Nemo-1T-lr0.003">
+  <img src="https://img.shields.io/badge/Llama-3B--Nemo--1T--lr0.003-white">
+</a>
+<a href="https://huggingface.co/facebook/PhysicsLM4.2__LlamaCanon-3B-Nemo-1T-lr0.003">
+  <img src="https://img.shields.io/badge/LlamaCanon-3B--Nemo--1T--lr0.003-white">
+</a>
+<br/>
+<a href="https://huggingface.co/facebook/PhysicsLM4.2__Llama-8B-Nemo-1T-lr0.002">
+  <img src="https://img.shields.io/badge/Llama-8B--Nemo--1T--lr0.002-white">
+</a>
+<a href="https://huggingface.co/facebook/PhysicsLM4.2__LlamaCanon-8B-Nemo-1T-lr0.002">
+  <img src="https://img.shields.io/badge/LlamaCanon-8B--Nemo--1T--lr0.002-white">
+</a>
+<a href="https://huggingface.co/facebook/PhysicsLM4.2__Llama-8B-Nemo-1T-lr0.003">
+  <img src="https://img.shields.io/badge/Llama-8B--Nemo--1T--lr0.003-white">
+</a>
+<a href="https://huggingface.co/facebook/PhysicsLM4.2__LlamaCanon-8B-Nemo-1T-lr0.003">
+  <img src="https://img.shields.io/badge/LlamaCanon-8B--Nemo--1T--lr0.003-white">
+</a>
+</div>
 
 ## Citation
 

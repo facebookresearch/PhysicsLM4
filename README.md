@@ -2,7 +2,7 @@
 [![Static Badge](https://img.shields.io/badge/Project_Page-215650)](https://physics.allen-zhu.com/part-4-architecture-design/part-4-1)
 [![Static Badge](https://img.shields.io/badge/paper%20Part%204.1-ssrn.5240330-b31b1b?logo=ssrn)](https://ssrn.com/abstract=5240330)
 [![Static Badge](https://img.shields.io/badge/github-PhysicsLM4-181717?logo=github)](https://github.com/facebookresearch/PhysicsLM4)
-[![Static Badge](https://img.shields.io/badge/Hugging%20Face-PhysicsLM4.2-FFD21E?logo=huggingface)](https://huggingface.co/facebook/PhysicsLM4.2__LlamaCanon-1B-Nemo-2T-lr0.005)
+[![Static Badge](https://img.shields.io/badge/Hugging%20Face-PhysicsLM4.2-FFD21E?logo=huggingface)](https://huggingface.co/collections/facebook/physics-of-language-models-part-42-6883fa5e7218a7369f22a806)
 
 **Author**: Zeyuan Allen-Zhu  
 
@@ -34,7 +34,7 @@ A modified version of [Meta’s Lingua codebase](https://github.com/facebookrese
 - Compatibility with the above Hugging Face `LlamaCanon` model (*bonus*: a `load_from_lingua_state` method for seamless loading of Lingua state_dicts).
 
 ### [`lingua_recipes`](lingua_recipes/)
-Comprehensive training recipes (YAML files) for reproducing our 16 released model weights [on Hugging Face](https://huggingface.co/facebook/PhysicsLM4.2__LlamaCanon-8B-Nemo-1T-lr0.003).
+Comprehensive training recipes (YAML files) for reproducing our 16 released model weights [on Hugging Face](https://huggingface.co/collections/facebook/physics-of-language-models-part-42-6883fa5e7218a7369f22a806).
 <div style="
   display: inline-block;
   transform: scale(0.9);
