@@ -2,10 +2,12 @@
 [![Static Badge](https://img.shields.io/badge/Project_Page_Part_4.1-215650)](https://physics.allen-zhu.com/part-4-architecture-design/part-4-1)
 [![Static Badge](https://img.shields.io/badge/Project_Page_Part_4.2-215650)](https://physics.allen-zhu.com/part-4-architecture-design/part-4-2)
 [![Static Badge](https://img.shields.io/badge/paper%20Part%204.1-ssrn.5240330-b31b1b?logo=ssrn)](https://ssrn.com/abstract=5240330)
-[![Static Badge](https://img.shields.io/badge/github-PhysicsLM4-181717?logo=github)](https://github.com/facebookresearch/PhysicsLM4)
+[![Static Badge](https://img.shields.io/badge/github-PhysicsLM4-181717?logo=github)](https://github.com/zhuzeyuan/PhysicsLM4)
 [![Static Badge](https://img.shields.io/badge/Hugging%20Face-PhysicsLM4.2-FFD21E?logo=huggingface)](https://huggingface.co/collections/facebook/physics-of-language-models-part-42-6883fa5e7218a7369f22a806)
 
 **Author**: Zeyuan Allen-Zhu  
+
+> **Repository update:** I no longer work at FAIR. This repository has moved to **[github.com/zhuzeyuan/PhysicsLM4](https://github.com/zhuzeyuan/PhysicsLM4)**, where all future updates will be maintained.
 
 Welcome to this code repository for the *Physics of Language Models* series. This repository provides all the resources required to reproduce results from the series' Part 4, as well as relevant contributions from Parts 1, 3.1, and 3.3. Below, we describe the key components of this release.
 
